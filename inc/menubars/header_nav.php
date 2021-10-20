@@ -3,11 +3,11 @@
         <!-- logo -->
         <div class="col-md-1-3 col-sm-1-2 col-xs-1-2">
             <?php if ( has_custom_logo() ): 
-                $custom_logo_id = get_theme_mod( 'custom_logo' );
-                $logourl = wp_get_attachment_image_src( $custom_logo_id , 'flexstarter-logo' ); 
+                $flexstarter_custom_logo_id = get_theme_mod( 'custom_logo' );
+                $flexstarter_logourl = wp_get_attachment_image_src( $flexstarter_custom_logo_id , 'flexstarter-logo' ); 
             ?>
                 <a class="logo" href="<?php echo esc_url( home_url( '/' )); ?>" rel="home" itemprop="url">
-                    <img src="<?php echo esc_url($logourl[0]); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+                    <img src="<?php echo esc_url($flexstarter_logourl[0]); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
                 </a>
             <?php else : ?>
                 <a class="logo" href="<?php echo esc_url( home_url( '/' )); ?>"><h2><?php esc_url(bloginfo('name')); ?></h2><p><?php esc_url(bloginfo('description')); ?></p></a>
