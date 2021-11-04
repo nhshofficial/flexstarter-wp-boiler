@@ -1,34 +1,41 @@
 // Navigation
-// Init responsive nav
-var customToggle = document.getElementById( 'nav-toggle' );
-var navigation = responsiveNav(".nav-collapse", {
-  customToggle: "#nav-toggle", // Selector: Specify the ID of a custom toggle
-  enableFocus: true,
-  enableDropdown: true,
-  openDropdown: '<span class="screen-reader-text">Open sub menu</span>',
-  closeDropdown: '<span class="screen-reader-text">Close sub menu</span>',
-      open: function () {
-          customToggle.innerHTML = 'X';
-      },
-      close: function () {
-          customToggle.innerHTML = 'Menu';
-      },
-      resizeMobile: function () {
-          customToggle.setAttribute( 'aria-controls', 'nav' );
-      },
-      resizeDesktop: function () {
-          customToggle.removeAttribute( 'aria-controls' );
-      },
-  });
+let header = document.querySelector('#header')
+let lastLi = document.querySelector('.navbar > ul > li:last-child')
+// console.log(header.offsetHeight)
 
-let searchToggle = document.querySelector(".search__toggle");
-let searchForm = document.querySelector(".search__form");
+let navbar = document.querySelector('.navbar-menu') // menu ul
+navbar.style.top = `${header.offsetHeight}px` // get and apply height
 
-searchToggle.addEventListener("click", showSearch);
+let navToggle = document.querySelector('#nav-toggle') // mobile toggle button
+let hiddenCls = document.querySelector('.hidden') // mobile toggle button
 
-function showSearch() {
-  searchForm.classList.toggle("active");
-}
+navToggle.addEventListener('click', () => {
+
+    navbar.classList.toggle('animated_menu');
+    
+    if(hiddenCls.style.opacity == '1'){
+        navbar.style.cssText += 'display: none !important; opacity: 0; height: 0; z-index: inherit;'
+        // hiddenCls.style.cssText += 'transition-timing-function:linear, step-end'
+    } else {
+        navbar.style.cssText += 'display: block !important; opacity: 1; height: auto; z-index: 999;'
+        // hiddenCls.style.removeProperty('transition-timing-function')
+    }
+}, true);
+
+
+let hasChildren = document.querySelector('ul.navbar-menu > li.menu-item-has-children');
+let subMenuHack1 = document.querySelector('.navbar-menu > li.menu-item-has-children > ul');
+let subMenuHack2 = document.querySelector('.navbar-menu > li:focus-within > ul');
+let navbarUl = document.querySelector('.navbar-menu ul');
+hasChildren.addEventListener('click', () => {
+    if(navbarUl.style.opacity == '1'){
+        subMenuHack1.style.cssText += 'display: none !important; opacity: 0;';
+        // subMenuHack2.style.cssText += 'display: none !important; opacity: 0;';
+    } else {
+        subMenuHack1.style.cssText += 'display: block !important; opacity: 1;';
+        // subMenuHack2.style.cssText += 'display: block !important; opacity: 1;';
+    }
+}, true);
 
 (function ($) {
 	"use strict";

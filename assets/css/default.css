@@ -14,10 +14,6 @@ p {
 a:hover {
 	text-decoration: none;
 }
-input:focus, textarea:focus, button:focus, .form-control:focus, .btn.focus, .btn:focus, a:focus, button:focus, .search-box input.form-control:focus, button.close-search:focus {
-	outline: none;
-	border: 1px dashed #999999;
-}
 
 abbr[title],
 abbr[data-original-title] {
@@ -215,6 +211,10 @@ h3.comment-reply-title a {
 
 .comment-form p label span.required, .comment-notes span.required{
     color: #ff0000;
+}
+
+.comment-content.card-block pre {
+    overflow-x: scroll;
 }
 /* -------------------------------------------------------------
 ## Comments from BS class
