@@ -28,9 +28,9 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'flexstarter' ); ?></a>
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
-	<header id="header" class="site-header main-header header-type" role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+	<header id="header" class="site-header main-header-bg header-type" role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
         <!-- menu works -->
-    	<?php include_once get_template_directory() . '/inc/menubars/header_nav.php'; ?>
+    	<?php include_once get_template_directory() . '/inc/menubars/header_nav_center.php'; ?>
        <!-- .menu work ends -->
 	</header><!-- #masthead -->
     
