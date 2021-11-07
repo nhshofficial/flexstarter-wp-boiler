@@ -1,4 +1,4 @@
-// Navigation
+// Navigation Js
 let header = document.querySelector('#header')
 let lastLi = document.querySelector('.navbar > ul > li:last-child')
 // console.log(header.offsetHeight)
@@ -36,6 +36,18 @@ hasChildren.addEventListener('click', () => {
         // subMenuHack2.style.cssText += 'display: block !important; opacity: 1;';
     }
 }, true);
+
+// Sticky menu add
+let logoClass = document.querySelector('.logo');
+window.addEventListener('scroll', () => {
+    let getScrollHeight = window.scrollY;
+    if(getScrollHeight > logoClass.offsetHeight){
+        navbar.classList.add('sticky-menu');
+    } else {
+        navbar.classList.remove('sticky-menu');
+    }
+}, true);
+
 
 (function ($) {
 	"use strict";
